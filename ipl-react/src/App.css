@@ -1,0 +1,294 @@
+/* Navbar Component */
+
+.navbar {
+    background-color: var(--primary);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--white);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+
+/* Hero Component */
+
+.hero {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    color: var(--white);
+    min-height: 420px;
+    padding: 60px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 46px;
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    color: var(--accent);
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 750px;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn {
+    background-color: var(--accent);
+    color: var(--primary);
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--white);
+    transform: translateY(-3px);
+}
+
+
+/* Match Schedule Section */
+
+.matches-section {
+    max-width: 1300px;
+    margin: 30px auto;
+    padding: 40px 5%;
+}
+
+.matches-section h2 {
+    text-align: center;
+    color: var(--primary);
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+
+/* Team Filter */
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.filter-container label {
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.filter-container select {
+    padding: 12px;
+    width: 250px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: var(--white);
+    color: var(--text);
+    cursor: pointer;
+}
+
+
+/* Match Grid */
+
+.match-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+
+/* MatchCard Component */
+
+.match-card {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-top: 5px solid var(--accent);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.match-number {
+    display: inline-block;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.match-card h3 {
+    color: var(--primary);
+    font-size: 26px;
+    margin: 15px 0;
+}
+
+.match-card p {
+    margin: 7px 0;
+}
+
+
+/* Ticket Prices */
+
+.ticket-prices {
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.ticket-prices p {
+    font-weight: bold;
+}
+
+
+/* Book Ticket Button */
+
+.book-btn {
+    width: 100%;
+    background-color: var(--accent);
+    color: var(--primary);
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.book-btn:hover {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+
+/* Sample Data Note */
+
+.note {
+    text-align: center;
+    color: #666666;
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+
+/* Responsive Layout */
+
+@media screen and (max-width: 1024px) {
+
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .match-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 350px;
+        padding: 40px 5%;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 14px;
+    }
+
+    .filter-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-container select {
+        width: 100%;
+    }
+
+    .match-card {
+        padding: 20px;
+    }
+}
