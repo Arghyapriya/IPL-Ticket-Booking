@@ -54,16 +54,25 @@
 <body>
 
     <header>
-        <h1>IPL 2026 Ticket Booking</h1>
+    <h1 class="logo">IPL 2026 Ticket Booking</h1>
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="index.html#matches">Matches</a>
-            <a href="booking.html">Book Ticket</a>
-            <a href="index.html#mybookings">My Bookings</a>
-            <a href="index.html#guidelines">Guidelines</a>
-        </nav>
-    </header>
+    <button type="button"
+            class="hamburger"
+            id="hamburger"
+            aria-label="Toggle navigation"
+            aria-controls="navMenu"
+            aria-expanded="false">
+        &#9776;
+    </button>
+
+    <nav id="navMenu" class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#matches">Matches</a>
+        <a href="booking.html#booking">Book Ticket</a>
+        <a href="index.html#mybookings">My Bookings</a>
+        <a href="index.html#guidelines">Guidelines</a>
+    </nav>
+</header>
 
     <section id="booking">
         <h2>IPL Ticket Booking Form</h2>

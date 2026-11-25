@@ -10,15 +10,25 @@
 
 <body>
 
-    <header>
-        <h1>IPL 2026 Ticket Booking</h1>
-        <nav>
-            <a href="#matches">Matches</a> |
-            <a href="booking.html">Book Ticket</a>
-            <a href="#mybookings">My Bookings</a> |
-            <a href="#guidelines">Guidelines</a>
-        </nav>
-    </header>
+<header>
+    <h1 class="logo">IPL 2026 Ticket Booking</h1>
+
+    <button type="button"
+            class="hamburger"
+            id="hamburger"
+            aria-label="Toggle navigation"
+            aria-controls="navMenu"
+            aria-expanded="false">
+        &#9776;
+    </button>
+
+    <nav id="navMenu" class="nav-links">
+        <a href="#matches">Matches</a>
+        <a href="booking.html">Book Ticket</a>
+        <a href="#mybookings">My Bookings</a>
+        <a href="#guidelines">Guidelines</a>
+    </nav>
+</header>
 
     <hr>
 
@@ -72,86 +82,123 @@
 
     <hr>
 
-    <section id="matches">
-        <h2>IPL 2026 Match Schedule</h2>
+<section id="matches">
+    <h2>IPL 2026 Match Schedule</h2>
 
-        <label for="teamFilter">Filter by Team:</label>
-        <select id="teamFilter" name="teamFilter">
-            <option value="all">All Teams</option>
-            <option value="CSK">Chennai Super Kings</option>
-            <option value="MI">Mumbai Indians</option>
-            <option value="RCB">Royal Challengers Bengaluru</option>
-            <option value="KKR">Kolkata Knight Riders</option>
-            <option value="RR">Rajasthan Royals</option>
-            <option value="SRH">Sunrisers Hyderabad</option>
-        </select>
+    <label for="teamFilter">Filter by Team:</label>
 
-        <br><br>
+    <select id="teamFilter" name="teamFilter">
+        <option value="all">All Teams</option>
+        <option value="CSK">Chennai Super Kings</option>
+        <option value="MI">Mumbai Indians</option>
+        <option value="RCB">Royal Challengers Bengaluru</option>
+        <option value="KKR">Kolkata Knight Riders</option>
+        <option value="RR">Rajasthan Royals</option>
+        <option value="SRH">Sunrisers Hyderabad</option>
+    </select>
 
-        <table border="1" cellpadding="10">
-            <thead>
-                <tr>
-                    <th>Match Number</th>
-                    <th>Teams</th>
-                    <th>Date & Time</th>
-                    <th>Venue</th>
-                    <th>General Price</th>
-                    <th>Premium Price</th>
-                    <th>VIP Price</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
+    <div class="view-controls">
 
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>CSK vs MI</td>
-                    <td>28 March 2026, 7:30 PM</td>
-                    <td>Chennai</td>
-                    <td>₹800</td>
-                    <td>₹1500</td>
-                    <td>₹3000</td>
-                    <td><a href="booking.html#booking">Book</a></td>
-                </tr>
+    <button type="button" id="gridView" class="view-btn active"
+            aria-pressed="true">
+        Grid View
+    </button>
 
-                <tr>
-                    <td>2</td>
-                    <td>RCB vs KKR</td>
-                    <td>29 March 2026, 7:30 PM</td>
-                    <td>Bengaluru</td>
-                    <td>₹900</td>
-                    <td>₹1800</td>
-                    <td>₹3500</td>
-                    <td><a href="booking.html#booking">Book</a></td>
-                </tr>
+    <button type="button" id="listView" class="view-btn"
+            aria-pressed="false">
+        List View
+    </button>
 
-                <tr>
-                    <td>3</td>
-                    <td>MI vs RR</td>
-                    <td>30 March 2026, 7:30 PM</td>
-                    <td>Mumbai</td>
-                    <td>₹700</td>
-                    <td>₹1400</td>
-                    <td>₹2800</td>
-                    <td><a href="booking.html#booking">Book</a></td>
-                </tr>
+</div>
+    <div class="match-grid" id="matchContainer">
 
-                <tr>
-                    <td>4</td>
-                    <td>KKR vs SRH</td>
-                    <td>31 March 2026, 7:30 PM</td>
-                    <td>Kolkata</td>
-                    <td>₹800</td>
-                    <td>₹1600</td>
-                    <td>₹3200</td>
-                    <td><a href="booking.html#booking">Book</a></td>
-                </tr>
-            </tbody>
-        </table>
+        <!-- Match 1 -->
+        <article class="match-card" data-teams="CSK MI">
+            <span class="match-number">Match 1</span>
 
-        <p>Note: The above matches and prices are sample data for this HTML activity.</p>
-    </section>
+            <h3>CSK vs MI</h3>
 
+            <p><strong>Date & Time:</strong> 28 March 2026, 7:30 PM</p>
+            <p><strong>Venue:</strong> Chennai</p>
+
+            <div class="ticket-prices">
+                <p>General: ₹800</p>
+                <p>Premium: ₹1500</p>
+                <p>VIP: ₹3000</p>
+            </div>
+
+            <a href="booking.html#booking" class="book-btn">
+                Book Ticket
+            </a>
+        </article>
+
+        <!-- Match 2 -->
+        <article class="match-card" data-teams="RCB KKR">
+            <span class="match-number">Match 2</span>
+
+            <h3>RCB vs KKR</h3>
+
+            <p><strong>Date & Time:</strong> 29 March 2026, 7:30 PM</p>
+            <p><strong>Venue:</strong> Bengaluru</p>
+
+            <div class="ticket-prices">
+                <p>General: ₹900</p>
+                <p>Premium: ₹1800</p>
+                <p>VIP: ₹3500</p>
+            </div>
+
+            <a href="booking.html#booking" class="book-btn">
+                Book Ticket
+            </a>
+        </article>
+
+        <!-- Match 3 -->
+        <article class="match-card" data-teams="MI RR">
+            <span class="match-number">Match 3</span>
+
+            <h3>MI vs RR</h3>
+
+            <p><strong>Date & Time:</strong> 30 March 2026, 7:30 PM</p>
+            <p><strong>Venue:</strong> Mumbai</p>
+
+            <div class="ticket-prices">
+                <p>General: ₹700</p>
+                <p>Premium: ₹1400</p>
+                <p>VIP: ₹2800</p>
+            </div>
+
+            <a href="booking.html#booking" class="book-btn">
+                Book Ticket
+            </a>
+        </article>
+
+        <!-- Match 4 -->
+        <article class="match-card" data-teams="KKR SRH">
+            <span class="match-number">Match 4</span>
+
+            <h3>KKR vs SRH</h3>
+
+            <p><strong>Date & Time:</strong> 31 March 2026, 7:30 PM</p>
+            <p><strong>Venue:</strong> Kolkata</p>
+
+            <div class="ticket-prices">
+                <p>General: ₹800</p>
+                <p>Premium: ₹1600</p>
+                <p>VIP: ₹3200</p>
+            </div>
+
+            <a href="booking.html#booking" class="book-btn">
+                Book Ticket
+            </a>
+        </article>
+
+    </div>
+
+    <p id="noMatches" hidden>No matches found for the selected team.</p>
+
+    <p>Note: The above matches and prices are sample data for this HTML activity.</p>
+
+</section>
     <hr>
 
     <section id="booking">
@@ -195,6 +242,12 @@
             <label for="email">Email Address:</label>
             <input type="email" id="email" name="email"
                    placeholder="Enter your email" required>
+
+            <br><br>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address"
+                    placeholder="Enter your address" required>
 
             <br><br>
 
@@ -261,8 +314,10 @@
 
     <hr>
 
-    <section id="guidelines">
-        <h2>Stadium Guidelines</h2>
+<section id="guidelines">
+    <h2>Stadium Guidelines</h2>
+
+    <div class="guidelines-grid">
 
         <article>
             <h3>1. Ticket Verification</h3>
@@ -278,7 +333,9 @@
             <h3>3. Prohibited Items</h3>
             <p>Weapons, fireworks, outside alcohol, sharp objects and other restricted items are not allowed inside the stadium.</p>
         </article>
-    </section>
+
+    </div>
+</section>
 
     <hr>
 

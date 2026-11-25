@@ -231,3 +231,123 @@ if (
     // Initialize booking summary
     updateBookingSummary(false);
 }
+// =========================================
+// Activity 8: Responsive Layout and Interaction
+// =========================================
+
+
+// 1. Hamburger Menu
+
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+if (hamburger && navMenu) {
+
+    hamburger.addEventListener("click", function () {
+
+        navMenu.classList.toggle("active");
+
+        const isOpen = navMenu.classList.contains("active");
+
+        hamburger.setAttribute("aria-expanded", isOpen);
+
+        hamburger.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // Close mobile menu after clicking a navigation link
+
+    navMenu.querySelectorAll("a").forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navMenu.classList.remove("active");
+
+            hamburger.setAttribute("aria-expanded", "false");
+
+            hamburger.textContent = "☰";
+        });
+    });
+}
+
+
+// 2. Filter Match Cards by Team
+
+const teamFilter = document.getElementById("teamFilter");
+const matchCards = document.querySelectorAll(".match-card");
+const noMatches = document.getElementById("noMatches");
+
+if (teamFilter && matchCards.length > 0) {
+
+    teamFilter.addEventListener("change", function () {
+
+        const selectedTeam = teamFilter.value;
+
+        let visibleMatches = 0;
+
+        matchCards.forEach(function (card) {
+
+            const teams = card.dataset.teams.split(" ");
+
+            const isVisible =
+                selectedTeam === "all" ||
+                teams.includes(selectedTeam);
+
+            card.hidden = !isVisible;
+
+            if (isVisible) {
+                visibleMatches++;
+            }
+        });
+
+        if (noMatches) {
+            noMatches.hidden = visibleMatches !== 0;
+        }
+
+        if (selectedTeam === "all") {
+            showToast("Showing all matches");
+        } else {
+            showToast("Showing matches for " + selectedTeam);
+        }
+    });
+}
+
+
+// 3. Grid View and List View
+
+const gridViewBtn = document.getElementById("gridView");
+const listViewBtn = document.getElementById("listView");
+const matchContainer = document.getElementById("matchContainer");
+
+if (gridViewBtn && listViewBtn && matchContainer) {
+
+    // Grid View
+
+    gridViewBtn.addEventListener("click", function () {
+
+        matchContainer.classList.remove("list-view");
+
+        gridViewBtn.classList.add("active");
+        listViewBtn.classList.remove("active");
+
+        gridViewBtn.setAttribute("aria-pressed", "true");
+        listViewBtn.setAttribute("aria-pressed", "false");
+
+        showToast("Grid View enabled");
+    });
+
+
+    // List View
+
+    listViewBtn.addEventListener("click", function () {
+
+        matchContainer.classList.add("list-view");
+
+        listViewBtn.classList.add("active");
+        gridViewBtn.classList.remove("active");
+
+        listViewBtn.setAttribute("aria-pressed", "true");
+        gridViewBtn.setAttribute("aria-pressed", "false");
+
+        showToast("List View enabled");
+    });
+}
